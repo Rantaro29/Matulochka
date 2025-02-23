@@ -1,60 +1,82 @@
 package com.example.matulohka.presentation.fragments
 
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.matulohka.R
+import com.example.matulohka.databinding.FragmentSingInBinding
+import com.example.matulohka.presentation.alert.Alert
+import com.example.matulohka.presentation.viewmodel.AuthViewModel
+import com.example.matulohka.utils.EmailPasswordValidator
+import io.github.jan.supabase.auth.exception.AuthRestException
+import io.github.jan.supabase.auth.user.UserInfo
+import io.github.jan.supabase.exceptions.HttpRequestException
+import io.ktor.client.plugins.HttpRequestTimeoutException
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SingInFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SingInFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentSingInBinding
+    private val authViewModel: AuthViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sing_in, container, false)
+
+        binding = FragmentSingInBinding.inflate(layoutInflater)
+
+        binding.checkbox.setOnCheckedChangeListener {_, check ->
+            if(check) {
+                binding.LogInPasswordEditText.transformationMethod = null
+            } else {
+                binding.LogInPasswordEditText.transformationMethod = PasswordTransformationMethod()
+            }
+        }
+
+        binding.singInButton.setOnClickListener {
+            val email : String = binding.LogInEmailEditText.text.toString()
+            val password: String = binding.LogInPasswordEditText.text.toString()
+
+            if(!EmailPasswordValidator.emailValidate(email)){
+                Alert.defaultAlert(context = context, message = "Invalid Email")
+            } else if(!EmailPasswordValidator.passwordValidate(password)) {
+                Alert.defaultAlert(context = context, message = "Invalid Password")
+            } else {
+
+                lifecycleScope.launch {
+                    var userInfo: UserInfo? = null
+
+                    try {
+                        userInfo = authViewModel.singIn(email, password)
+
+                        if(userInfo != null) {
+                            findNavController().navigate(R.id.action_singInFragment_to_homeFragment)
+                        } else {
+                            Alert.defaultAlert(context = context, message = "Invalid Login")
+                        }
+                    }
+                    catch (e: HttpRequestTimeoutException) {
+                        Alert.defaultAlert(context = context, message = "Превышено время ожидания")
+                    } catch (e: AuthRestException) {
+                        Alert.defaultAlert(context = context, message = "Invalid Login")
+                    } catch (e: HttpRequestException) {
+                        Alert.defaultAlert(context = context, message = "Нету подключения к интернету")
+                    }
+
+                }
+
+            }
+        }
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SingInFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SingInFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

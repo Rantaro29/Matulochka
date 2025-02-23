@@ -1,17 +1,27 @@
 package com.example.matulohka
 
+import com.example.matulohka.utils.EmailPasswordValidator
 import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
 class ExampleUnitTest {
+
+    private val invalidEmail = "asd@d"
+    private val invalidPassword = "dafaAsdaf"
+
+    private val validEmail = "user@gmail.com"
+    private val validPassword = "User1234/"
+
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun validEmail() {
+        assertTrue(EmailPasswordValidator.emailValidate(validEmail))
+        assertFalse(EmailPasswordValidator.emailValidate(invalidEmail))
+    }
+
+    @Test
+    fun validPassword() {
+        assertTrue(EmailPasswordValidator.passwordValidate(validPassword))
+        assertFalse(EmailPasswordValidator.passwordValidate(invalidPassword))
     }
 }

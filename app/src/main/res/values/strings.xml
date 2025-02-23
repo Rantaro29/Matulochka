@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Matulohka</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_again">Hello Again!</string>
+    <string name="fill_your_details_or_continue_with_social_media">Fill your details or continue with social media</string>
+    <string name="email">Email</string>
+    <string name="xyz_gmail_com">xyz@gmail.com</string>
+    <string name="password">Password</string>
+    <string name="dots">••••••••</string>
+    <string name="recovery_password">Recovery Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="new_user_create_account"><font color="#6A6A6A">New User?</font> Create Account</string>
 </resources>
