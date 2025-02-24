@@ -5,7 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.activity.MainActivity">
+    tools:context=".presentation.activity.MainActivity"
+    tools:background="@color/background"
+    android:clipToPadding="false"
+    android:clipChildren="false"
+    >
 
 
     <androidx.fragment.app.FragmentContainerView
@@ -15,5 +19,39 @@
         android:layout_height="match_parent"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/bagButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/accent_circle"
+            android:elevation="4dp"
+            android:src="@drawable/bag_ic"
+            app:layout_constraintEnd_toEndOf="@+id/bottomNavigationView2"
+            app:layout_constraintStart_toStartOf="@+id/bottomNavigationView2"
+            app:layout_constraintTop_toTopOf="@+id/bottomNavigationView2" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/vector_1789__3_"
+            android:elevation="4dp"
+            app:itemIconTint="@color/nav_item_color"
+            app:labelVisibilityMode="unlabeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:menu="@menu/bottom_menu" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

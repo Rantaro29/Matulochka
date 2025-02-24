@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.fragments.OnboardFragment"
+    android:orientation="vertical"
+    android:background="@drawable/gradient">
+
+    <androidx.viewpager2.widget.ViewPager2
+
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/newPeninimFw400Fs14Lh14dot33"
+        android:textAllCaps="false"
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/block_r13"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="36dp"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

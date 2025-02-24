@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.fragments.onboard.ThirdOnboardFragment"
+    tools:background="@drawable/gradient">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/image_3"
+        android:layout_gravity="center_horizontal"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        style="@style/newPeninimFw400Fs34Lh44dot2"
+        android:textAlignment="center"
+        android:text="@string/you_have_the_power_to"
+        android:layout_marginHorizontal="30dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/there_are_many_beautiful_and_attractive_plants_to_your_room"
+        android:textAlignment="center"
+        android:layout_marginHorizontal="26dp"
+        style="@style/newPeninimFw400Fs16Lh24"
+        android:textColor="@color/subTextLight"
+        android:layout_marginTop="12dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/indicator_3"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"/>
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

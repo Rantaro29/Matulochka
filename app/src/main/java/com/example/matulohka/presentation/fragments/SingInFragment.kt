@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.transition.Visibility
 import com.example.matulohka.R
 import com.example.matulohka.databinding.FragmentSingInBinding
 import com.example.matulohka.presentation.alert.Alert
@@ -33,12 +34,16 @@ class SingInFragment : Fragment() {
 
         binding = FragmentSingInBinding.inflate(layoutInflater)
 
+        binding.progressBar.visibility = View.INVISIBLE
+
         binding.checkbox.setOnCheckedChangeListener {_, check ->
             if(check) {
                 binding.LogInPasswordEditText.transformationMethod = null
             } else {
                 binding.LogInPasswordEditText.transformationMethod = PasswordTransformationMethod()
             }
+
+            binding.LogInPasswordEditText.setSelection(binding.LogInPasswordEditText.length())
         }
 
         binding.singInButton.setOnClickListener {
@@ -57,6 +62,8 @@ class SingInFragment : Fragment() {
                     try {
                         userInfo = authViewModel.singIn(email, password)
 
+                        binding.progressBar.visibility = View.VISIBLE
+
                         if(userInfo != null) {
                             findNavController().navigate(R.id.action_singInFragment_to_homeFragment)
                         } else {
@@ -71,6 +78,8 @@ class SingInFragment : Fragment() {
                         Alert.defaultAlert(context = context, message = "Нету подключения к интернету")
                     }
 
+                }.invokeOnCompletion {
+                    binding.progressBar.visibility = View.INVISIBLE
                 }
 
             }

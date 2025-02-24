@@ -11,4 +11,25 @@
     <string name="recovery_password">Recovery Password</string>
     <string name="sign_in">Sign In</string>
     <string name="new_user_create_account"><font color="#6A6A6A">New User?</font> Create Account</string>
+    <string name="wellcome">Wellcome</string>
+    <string name="let_s_start_journey">Let’s Start Journey</string>
+    <string name="smart_gorgeous_fashionable_collection_explor_now"><![CDATA[Smart, Gorgeous & Fashionable Collection Explor Now]]></string>
+    <string name="you_have_the_power_to">You Have the Power To</string>
+    <string name="there_are_many_beautiful_and_attractive_plants_to_your_room">There Are Many Beautiful And Attractive Plants To Your Room</string>
+    <string name="start">Start</string>
+    <string name="next">Next</string>
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
+    <string name="notification">Notification</string>
+    <string name="profile">Profile</string>
+    <string name="explore">Explore</string>
+    <string name="search">Search</string>
+    <string name="select_category">Select Category</string>
+    <string name="popular_shoes">Popular Shoes</string>
+    <string name="see_all">See all</string>
+    <string name="new_arrivals">New Arrivals</string>
+    <string name="best_seller">Best Seller</string>
+    <string name="_752_00">₽752.00</string>
+    <string name="popular">Popular</string>
+    <string name="outdoor">Outdoor</string>
 </resources>

@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="newPeninimFw400Fs12Lh12dot28">
+        <item name="android:fontFamily">@font/new_peninim</item>
+        <item name="fontWeight">400</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">12.28dp</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+
+    <style name="newPeninimFw400Fs12Lh20">
+        <item name="android:fontFamily">@font/new_peninim</item>
+        <item name="fontWeight">400</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">20dp</item>
+        <item name="android:textColor">@color/hint</item>
+    </style>
+
+
+    <style name="newPeninimFw400Fs34Lh44dot2">
+        <item name="android:fontFamily">@font/new_peninim</item>
+        <item name="fontWeight">400</item>
+        <item name="android:textSize">34sp</item>
+        <item name="lineHeight">44.2dp</item>
+        <item name="android:textColor">@color/block</item>
+    </style>
+
+    <style name="newPeninimFw400Fs14Lh14dot33">
+        <item name="android:fontFamily">@font/new_peninim</item>
+        <item name="fontWeight">400</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">14.33dp</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+
+    <style name="newPeninimFw400Fs30Lh30dot7">
+        <item name="android:fontFamily">@font/new_peninim</item>
+        <item name="fontWeight">400</item>
+        <item name="android:textSize">30sp</item>
+        <item name="lineHeight">30.7dp</item>
+        <item name="android:textColor">@color/block</item>
+    </style>
+
+
     <style name="newPeninimFw400Fs16Lh16dot38">
         <item name="android:fontFamily">@font/new_peninim</item>
         <item name="fontWeight">400</item>
